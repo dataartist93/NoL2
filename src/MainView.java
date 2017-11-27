@@ -2,6 +2,7 @@
 public class MainView {
 public static void main(String[] args) {
 	String str = "eek";
-	System.out.println(str);
+	int su = 11;
+	System.out.println(su);
 }
 }
