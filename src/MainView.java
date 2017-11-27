@@ -1,7 +1,7 @@
 
 public class MainView {
 public static void main(String[] args) {
-	String str = "eek";
+	String str = "asdaseek";
 	System.out.println(str);
 }
 }
