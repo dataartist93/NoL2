@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import com.nol2.model.vo.CusVO;
+
 
 
 public class CusDAO {
