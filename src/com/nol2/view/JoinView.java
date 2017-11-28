@@ -135,3 +135,25 @@ public class JoinView extends JFrame {
 	   
 	}//JoinForm
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
