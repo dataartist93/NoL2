@@ -198,7 +198,7 @@ public class MainView extends JFrame {//implements Runnable {
       add(bt_menu5);      add(bt_menu6);      add(bt_menu7);      add(bt_menu8);
       add(la_menu5);      add(la_menu6);      add(la_menu7);      add(la_menu8);
       add(la_price5);     add(la_price6);     add(la_price7);     add(la_price8);
-
+  
       add(scrol_table);
 
       add(la_priceAll);      add(la_result);
