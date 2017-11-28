@@ -17,6 +17,7 @@ increment by 1
 nocycle
 nocache;
 
+
 create table ticket
 (
 ticketno number(4) constraint ticket_pk primary key,
@@ -31,3 +32,15 @@ start with 1
 increment by 1
 nocycle
 nocache;
+
+create table prepass
+(
+prepassno number(5) constraint prepass_pk primary key,
+empno number(4)
+rideno number(4)
+
+)
+
+
+
+

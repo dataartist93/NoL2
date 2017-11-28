@@ -5,4 +5,4 @@
  * @author Playdata
  *
  */
-package table.def;
+package com.nol2.model.tabledef;

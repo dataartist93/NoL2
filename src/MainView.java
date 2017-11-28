@@ -1,10 +1,10 @@
 
 public class MainView {
+
 	public static void main(String[] args) {
-
 		String str = "eek";
-		String name = "sungwon";
-		System.out.println(name);
 
+		int su = 22;
+		System.out.println(su);
 	}
 }
