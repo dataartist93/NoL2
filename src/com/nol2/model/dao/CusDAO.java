@@ -49,20 +49,100 @@ public class CusDAO {
 			e.printStackTrace();
 		}
     }
-    public void insert() {
-    	
-    }
-    public void delete() {
-    	
-    }
-    public void update() {
-    	
-    }
-    public void select() {
-    	
-    }
+    public boolean insert(CusVO vo) {   
+    	connect();
+    	try {
+			String sql="insert into customer values(?,?,?,?,?,?,?,?,?,?)";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1,vo.getCusno());
+			pstmt.setInt(2,vo.getEventno());
+			pstmt.setString(3,vo.getID());
+			pstmt.setString(4,vo.getPassword());
+			pstmt.setInt(4,vo.getJumin1());
+			pstmt.setInt(5,vo.getJumin2());
+			pstmt.setString(6,vo.getName());
+			pstmt.setInt(7,vo.getTel());
+			pstmt.setString(8,vo.getAddr());
+			pstmt.setString(9,vo.getPerinfo());
+			pstmt.executeUpdate();
+			
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			disconnect();			
+		}
+    	return false;
+    }//insert
+    
+    public boolean delete(String delID) {
+    	connect();
+    	try {
+			String sql="delete from customer where ID=?";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1,delID);
+			int t=pstmt.executeUpdate();
+			if(t==1)
+				return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			disconnect();			
+		}
+    	return false;
+    }//delete
+    
+    public boolean update(CusVO vo) {
+    	connect();
+    	try {
+			String sql="update customer set Password=?,Tel=?,addr=? where ID=?";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1,vo.getPassword());
+			pstmt.setInt(2,vo.getTel());
+			pstmt.setString(3,vo.getAddr());
+			int t= pstmt.executeUpdate();
+			if(t==1)
+				return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			disconnect();			
+		}
+    	return false;
+    }//update
+    
+    public CusVO select(String upID) {
+    	connect();
+    	CusVO cusvo=null;
+    	try {
+			String sql="select cusno,eventno,ID,Password,Jumin1,Jumin2,Name,Tel,addr,perinfo from customer where ID=?";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1,upID);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+			 cusvo=new CusVO();
+			 cusvo.setCusno(rs.getInt("cusno"));
+			 cusvo.setEventno(rs.getInt("eventno"));
+			 cusvo.setID(rs.getString("ID"));
+			 cusvo.setPassword(rs.getString("Password"));
+			 cusvo.setJumin1(rs.getInt("Jumin1"));
+			 cusvo.setJumin2(rs.getInt("Jumin2"));
+			 cusvo.setName(rs.getString("Name"));
+			 cusvo.setTel(rs.getInt("Tel"));
+			 cusvo.setAddr(rs.getString("addr"));
+			 cusvo.setPerinfo(rs.getString("perinfo"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			disconnect();			
+		}
+    	return cusvo;
+    }//select
+   
     public void selectAll() {
     	
     }
+
   
 }//CusDAO
