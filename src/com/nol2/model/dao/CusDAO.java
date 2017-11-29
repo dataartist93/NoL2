@@ -172,8 +172,9 @@ public class CusDAO {
 	}
 
 	// 아이디 찾기
-	public boolean findID(String Name, int Jumin1, int Jumin2) {
+	public String findID(String Name, int Jumin1, int Jumin2) {
 		connect();
+		String id = null;
 		try {
 			String sql = "select ID from customer where Name=? and Jumin1=? and Jumin2=?";
 			pstmt = conn.prepareStatement(sql);
@@ -181,19 +182,23 @@ public class CusDAO {
 			pstmt.setInt(2, Jumin1);
 			pstmt.setInt(3, Jumin2);
 			rs = pstmt.executeQuery();
-			rs.next();
-			return true;
+			if(rs.next()) {
+				id = rs.getString(1);
+				return id;
+			}			
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disconnect();
 		}
-		return false;
+		return id;
 	}
 
 	// 비번 찾기
-	public boolean findPass(String ID, String Tel, int Jumin1, int Jumin2) {
+	public String findPass(String ID, String Tel, int Jumin1, int Jumin2) {
 		connect();
+		String Password = null;
 		try {
 			String sql = "select Password from customer where ID=? and Tel=? and Jumin1=? and Jumin2=?";
 			pstmt = conn.prepareStatement(sql);
@@ -202,14 +207,17 @@ public class CusDAO {
 			pstmt.setInt(3, Jumin1);
 			pstmt.setInt(4, Jumin2);
 			rs = pstmt.executeQuery();
-			rs.next();
-			return true;
+			if(rs.next()) {
+				Password=rs.getString(1);
+				return Password;
+			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disconnect();
 		}
-		return false;
+		return Password;
 	}
 
 }// CusDAO
