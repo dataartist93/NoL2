@@ -102,7 +102,7 @@ public class RideDAO {
 		public boolean update(RideVO vo) {
 			connect();
 			try {
-				String sql = "update customer set empno=?,ridename=?,rideinfo=?,operation=?,"
+				String sql = "update ride set empno=?,ridename=?,rideinfo=?,operation=?,"
 						+ "opertime=?,waittime=?,ridelimit=?,countpeople=?,location=?,countride=? where rideno=?";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, vo.getEmpno());
