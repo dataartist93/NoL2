@@ -81,8 +81,7 @@ public class CusDAO {
 	public boolean delete(String ID, String Password, int Jumin1, int Jumin2) {
 		connect();
 		try {
-			String sql = "delete from customer where ID=? and Password=? and"
-					+ "jumin1=? and jumin2=? ";
+			String sql = "delete from customer where ID=? and Password=? and" + "jumin1=? and jumin2=? ";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, ID);
 			pstmt.setString(2, Password);
@@ -182,11 +181,11 @@ public class CusDAO {
 			pstmt.setInt(2, Jumin1);
 			pstmt.setInt(3, Jumin2);
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			if (rs.next()) {
 				id = rs.getString(1);
 				return id;
-			}			
-			
+			}
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -207,11 +206,11 @@ public class CusDAO {
 			pstmt.setInt(3, Jumin1);
 			pstmt.setInt(4, Jumin2);
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				Password=rs.getString(1);
+			if (rs.next()) {
+				Password = rs.getString(1);
 				return Password;
 			}
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
