@@ -18,6 +18,7 @@ public class CusDAO {
 	ResultSet rs;
 	Properties pro;
 
+	
 	public CusDAO() {
 		try {
 			pro = new Properties();
