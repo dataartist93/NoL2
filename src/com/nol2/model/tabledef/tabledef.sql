@@ -82,7 +82,7 @@ drop table convenient;
 create table convenient
 (
 conno number(4) constraint convenient_pk primary key,
-empno number(4),
+cusno number(4),
 conname varchar2(15) not null,
 coninfo varchar2(300) not null,
 conoperation varchar2(20) not null,
