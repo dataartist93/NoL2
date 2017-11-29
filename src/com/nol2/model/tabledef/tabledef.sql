@@ -62,7 +62,7 @@ empno number(4),
 ridename varchar2(15) not null,
 rideinfo varchar2(300) not null,
 operation varchar2(20),
-opertime number(12) not null,
+opertime varchar2(15) not null,
 waittime number(12) not null,
 ridelimit varchar2(100) not null,
 countpeople varchar2(50) not null,
@@ -82,7 +82,7 @@ drop table convenient;
 create table convenient
 (
 conno number(4) constraint convenient_pk primary key,
-cusno number(4),
+empno number(4),
 conname varchar2(15) not null,
 coninfo varchar2(300) not null,
 conoperation varchar2(20) not null,

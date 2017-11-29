@@ -10,13 +10,9 @@ import com.nol2.view.JoinView;
 
 public class Controller implements ActionListener {
 	JoinView joinview;
-<<<<<<< HEAD
 
-=======
 	FindID findidview;
-	
-	
->>>>>>> upstream/master
+
 	public Controller() {
 		joinview = new JoinView();
 		findidview = new FindID();
@@ -48,15 +44,15 @@ public class Controller implements ActionListener {
 
 			cusdao.insert(cusvo);
 		}
-		
+
 		else if (ob == findidview.bt_submit) {
 			CusDAO cusdao = new CusDAO();
 			String Name = findidview.tf_name.getText();
 			int ssn1 = Integer.parseInt(findidview.tf_ssn1.getText());
 			int ssn2 = Integer.parseInt(findidview.tf_ssn2.getText());
-			
+
 			String ID = cusdao.findID(Name, ssn1, ssn2);
-			
+
 			findidview.showMsg(ID);
 		}
 	}

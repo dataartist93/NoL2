@@ -2,16 +2,16 @@ package com.nol2.model.vo;
 
 public class ConvenientVO {
 private	int conno;
-private	int cusno;
+private	int empno;
 private	String conname;
 private	String coninfo;
 private	String conoperation;
 private	String conlocation;
 
-	public ConvenientVO(int conno, int cusno, String conname, String coninfo, String conoperation, String conlocation) {
+	public ConvenientVO(int conno, int empno, String conname, String coninfo, String conoperation, String conlocation) {
 		super();
 		this.conno = conno;
-		this.cusno = cusno;
+		this.empno = empno;
 		this.conname = conname;
 		this.coninfo = coninfo;
 		this.conoperation = conoperation;
@@ -26,12 +26,12 @@ private	String conlocation;
 		this.conno = conno;
 	}
 
-	public int getCusno() {
-		return cusno;
+	public int getempno() {
+		return empno;
 	}
 
-	public void setCusno(int cusno) {
-		this.cusno = cusno;
+	public void setempno(int empno) {
+		this.empno = empno;
 	}
 
 	public String getConname() {
