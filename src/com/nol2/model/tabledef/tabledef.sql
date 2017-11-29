@@ -128,7 +128,6 @@ ticketno number(4),
 coupon varchar2(10),
 paydate date,
 payment varchar2(15) not null
-
 );
 
 drop sequence pay_seq;
