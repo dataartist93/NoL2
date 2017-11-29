@@ -32,9 +32,10 @@ public class Controller implements ActionListener{
 			int Jumin1 = Integer.parseInt(joinview.tf_ssn1.getText());
 			int Jumin2 = Integer.parseInt(joinview.tf_ssn2.getText());;
 			String Name = joinview.tf_name.getText();
+			String Tel = joinview.tf_tel1.getText() + "-" + joinview.tf_tel2.getText() + "-" + joinview.tf_tel3.getText();
 			String addr = joinview.tf_addr.getText();
 			String perinfo = "ok"; 
-			CusVO cusvo = new CusVO(0, 0, ID, Password, Jumin1,Jumin2, Name, addr, perinfo);
+			CusVO cusvo = new CusVO(0, 0, ID, Password, Jumin1,Jumin2, Name, Tel ,addr, perinfo);
 			
 			cusdao.insert(cusvo);
 		}

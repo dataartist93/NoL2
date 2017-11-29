@@ -58,12 +58,12 @@ public class CusDAO {
 			pstmt.setInt(2,vo.getEventno());
 			pstmt.setString(3,vo.getID());
 			pstmt.setString(4,vo.getPassword());
-			pstmt.setInt(4,vo.getJumin1());
-			pstmt.setInt(5,vo.getJumin2());
-			pstmt.setString(6,vo.getName());
-			pstmt.setInt(7,vo.getTel());
-			pstmt.setString(8,vo.getAddr());
-			pstmt.setString(9,vo.getPerinfo());
+			pstmt.setInt(5,vo.getJumin1());
+			pstmt.setInt(6,vo.getJumin2());
+			pstmt.setString(7,vo.getName());
+			pstmt.setString(8,vo.getTel());
+			pstmt.setString(9,vo.getAddr());
+			pstmt.setString(10,vo.getPerinfo());
 			pstmt.executeUpdate();
 			
 			return true;
@@ -98,7 +98,7 @@ public class CusDAO {
 			String sql="update customer set Password=?,Tel=?,addr=? where ID=?";
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1,vo.getPassword());
-			pstmt.setInt(2,vo.getTel());
+			pstmt.setString(2,vo.getTel());
 			pstmt.setString(3,vo.getAddr());
 			int t= pstmt.executeUpdate();
 			if(t==1)
@@ -128,7 +128,7 @@ public class CusDAO {
 			 cusvo.setJumin1(rs.getInt("Jumin1"));
 			 cusvo.setJumin2(rs.getInt("Jumin2"));
 			 cusvo.setName(rs.getString("Name"));
-			 cusvo.setTel(rs.getInt("Tel"));
+			 cusvo.setTel(rs.getString("Tel"));
 			 cusvo.setAddr(rs.getString("addr"));
 			 cusvo.setPerinfo(rs.getString("perinfo"));
 			}

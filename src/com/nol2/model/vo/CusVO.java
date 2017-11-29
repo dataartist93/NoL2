@@ -9,7 +9,7 @@ public class CusVO {
   private int Jumin1;
   private int Jumin2;
   private String Name;
-  private int Tel;
+  private String Tel;
   private String addr;
   private String perinfo;
   
@@ -17,7 +17,7 @@ public CusVO() {
 	
 }
 
-public CusVO(int cusno,int eventno, String ID, String Password, int Jumin1, int Jumin2, String Name, int Tel,
+public CusVO(int cusno,int eventno, String ID, String Password, int Jumin1, int Jumin2, String Name, String Tel,
 		String addr, String perinfo) {
 	super();
 	this.cusno=cusno;
@@ -94,11 +94,11 @@ public void setName(String Name) {
 	Name = Name;
 }
 
-public int getTel() {
+public String getTel() {
 	return Tel;
 }
 
-public void setTel(int Tel) {
+public void setTel(String Tel) {
 	Tel = Tel;
 }
 
