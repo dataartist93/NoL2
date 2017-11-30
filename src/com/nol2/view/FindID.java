@@ -39,7 +39,7 @@ public class FindID  extends JFrame{
 		add(la_n);
 		
 		setBounds(350,200,300,450);		
-		setVisible(true);
+		//setVisible(true);
 		setResizable(false);
 	}//������  
 	 public void showMsg(String msg) {
