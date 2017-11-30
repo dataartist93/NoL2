@@ -49,8 +49,15 @@ public class Controller implements ActionListener {
 			String Tel = joinview.tf_tel1.getText() + "-" + joinview.tf_tel2.getText() + "-"
 					+ joinview.tf_tel3.getText();
 			String addr = joinview.tf_addr.getText();
-			String perinfo = "ok";
-			CusVO cusvo = new CusVO(0, 0, ID, Password, Jumin1, Jumin2, Name, Tel, addr, perinfo);
+			String perinfo = null;
+			if(joinview.rb1.isSelected()) {
+				perinfo = "Y";		
+			}
+			else {
+				perinfo = "N";	
+			}
+			
+			CusVO cusvo = new CusVO(0, 0, ID, Password, Jumin1, Jumin2, Name, Tel, addr, perinfo); // Primary key 자리에 seq 해야함 !!
 
 			cusdao.insert(cusvo);
 		}
