@@ -6,21 +6,20 @@ import java.awt.event.ActionListener;
 import com.nol2.model.dao.CusDAO;
 import com.nol2.model.vo.CusVO;
 import com.nol2.view.FindID;
-import com.nol2.view.JoinView;
+import com.nol2.view.Join;
 import com.nol2.view.LoginForm;
 import com.nol2.view.MainView;
 
 public class Controller implements ActionListener {
 	MainView mainview;
 	LoginForm loginform;
-	JoinView joinview;
-
+	Join joinview;
 	FindID findidview;
 
 	public Controller() {
 		mainview = new MainView();
 		loginform = new LoginForm();
-		joinview = new JoinView();
+		joinview = new Join();
 		findidview = new FindID();
 		eventUp();
 	}
