@@ -1,9 +1,9 @@
 package com.nol2.model.vo;
 
 public class TicketVO {
-  private int ticketno; 
-  private int empno; 
-  private String ticketinfo; 
+  private int ticketNo; 
+  private int empNo; 
+  private String ticketInfo; 
   private int price; 
   private String discount; 
   private String tickets;
@@ -11,36 +11,36 @@ public class TicketVO {
 public TicketVO() {
 	
 }
-public TicketVO(int ticketno, int empno, String ticketinfo, int price, String discount, String tickets) {
+public TicketVO(int ticketNo, int empNo, String ticketInfo, int price, String discount, String tickets) {
 	super();
-	this.ticketno = ticketno;
-	this.empno = empno;
-	this.ticketinfo = ticketinfo;
+	this.ticketNo = ticketNo;
+	this.empNo = empNo;
+	this.ticketInfo = ticketInfo;
 	this.price = price;
 	this.discount = discount;
 	this.tickets = tickets;
 }
 public String toString() {
-	return "TicketVO [ticketno=" + ticketno + ", empno=" + empno + ", ticketinfo=" + ticketinfo + ", price=" + price
+	return "TicketVO [ticketNo=" + ticketNo + ", empNo=" + empNo + ", ticketInfo=" + ticketInfo + ", price=" + price
 			+ ", discount=" + discount + ", tickets=" + tickets + "]";
 }
 public int getTicketno() {
-	return ticketno;
+	return ticketNo;
 }
-public void setTicketno(int ticketno) {
-	this.ticketno = ticketno;
+public void setTicketno(int ticketNo) {
+	this.ticketNo = ticketNo;
 }
 public int getEmpno() {
-	return empno;
+	return empNo;
 }
-public void setEmpno(int empno) {
-	this.empno = empno;
+public void setEmpno(int empNo) {
+	this.empNo = empNo;
 }
 public String getTicketinfo() {
-	return ticketinfo;
+	return ticketInfo;
 }
-public void setTicketinfo(String ticketinfo) {
-	this.ticketinfo = ticketinfo;
+public void setTicketinfo(String ticketInfo) {
+	this.ticketInfo = ticketInfo;
 }
 public int getPrice() {
 	return price;
