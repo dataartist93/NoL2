@@ -21,10 +21,10 @@ public class JoinView extends JFrame {
 		
 	  public JoinView()
 		{	  
-			setTitle("È¸¿ø°¡ÀÔ");
+			setTitle("È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 			
 			jb = new JLabel[3];		
-			//String jobT[]= {"ÇÐ»ý","°ø¹«¿ø","¾ð·Ð/ÃâÆÇ","±ºÀÎ/°æÂû","ÀÏ¹Ý»ç¹«Á÷","¿µ¾÷Á÷","±â¼ú/Àü¹®Á÷","º¸°Ç/ÀÇ·á","ÀÚ¿µ¾÷","ÁÖºÎ","±âÅ¸"};
+			//String jobT[]= {"ï¿½Ð»ï¿½","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½","ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½","ï¿½Ï¹Ý»ç¹«ï¿½ï¿½","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","ï¿½ï¿½ï¿½ï¿½/ï¿½Ç·ï¿½","ï¿½Ú¿ï¿½ï¿½ï¿½","ï¿½Öºï¿½","ï¿½ï¿½Å¸"};
 			
 			/*for(int i=0; i<jb.length; i++)
 			{
@@ -42,18 +42,18 @@ public class JoinView extends JFrame {
 			tf_tel3 = new JTextField();
 			tf_addr = new JTextField();
 			
-		    bt_submit = new JButton("µî·Ï");
-		    bt_reset = new JButton("Ãë¼Ò");
-			bt_checkid = new JButton("Áßº¹È®ÀÎ");
+		    bt_submit = new JButton("ï¿½ï¿½ï¿½");
+		    bt_reset = new JButton("ï¿½ï¿½ï¿½");
+			bt_checkid = new JButton("ï¿½ßºï¿½È®ï¿½ï¿½");
 			
 			la_id = new JLabel("I  D:");
-			la_pass1 = new JLabel("ºñ  ¹ø:");
-			la_pass2 = new JLabel("ºñ¹øÈ®ÀÎ:");
-			la_n = new JLabel("ÀÌ  ¸§:");
-			la_j = new JLabel("ÁÖ¹Î¹øÈ£:");
-			la_t = new JLabel("ÀüÈ­¹øÈ£:");
-			la_addr = new JLabel("ÁÖ  ¼Ò:");
-			//la_job = new JLabel("Á÷  ¾÷:");
+			la_pass1 = new JLabel("ï¿½ï¿½  ï¿½ï¿½:");
+			la_pass2 = new JLabel("ï¿½ï¿½ï¿½È®ï¿½ï¿½:");
+			la_n = new JLabel("ï¿½ï¿½  ï¿½ï¿½:");
+			la_j = new JLabel("ï¿½Ö¹Î¹ï¿½È£:");
+			la_t = new JLabel("ï¿½ï¿½È­ï¿½ï¿½È£:");
+			la_addr = new JLabel("ï¿½ï¿½  ï¿½ï¿½:");
+			//la_job = new JLabel("ï¿½ï¿½  ï¿½ï¿½:");
 			
 			//cb_job = new JComboBox<String>(jobT);		
 			
@@ -123,9 +123,9 @@ public class JoinView extends JFrame {
 			}*/
 			
 			setBounds(350,200,300,450);		
-			setVisible(true);
+			//setVisible(true);
 			setResizable(false);
-		}//»ý¼ºÀÚ  
+		}//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
 	  
 	  public void showMsg(String msg) {
 			 JOptionPane.showMessageDialog(this, msg); 

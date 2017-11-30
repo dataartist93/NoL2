@@ -7,27 +7,38 @@ import com.nol2.model.dao.CusDAO;
 import com.nol2.model.vo.CusVO;
 import com.nol2.view.FindID;
 import com.nol2.view.JoinView;
+import com.nol2.view.LoginForm;
+import com.nol2.view.MainView;
 
 public class Controller implements ActionListener {
+	MainView mainview;
+	LoginForm loginform;
 	JoinView joinview;
 
 	FindID findidview;
 
 	public Controller() {
+		mainview = new MainView();
+		loginform = new LoginForm();
 		joinview = new JoinView();
 		findidview = new FindID();
 		eventUp();
 	}
 
 	public void eventUp() {
+		mainview.bt_Login.addActionListener(this);
 		joinview.bt_submit.addActionListener(this);
 		findidview.bt_submit.addActionListener(this);
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		Object ob = e.getSource();
-
-		if (ob == joinview.bt_submit) {
+		
+		if(ob == mainview.bt_Login) {
+			loginform.setVisible(true);
+		}
+		
+		else if (ob == joinview.bt_submit) {
 			CusDAO cusdao = new CusDAO();
 
 			String ID = joinview.tf_id.getText();
