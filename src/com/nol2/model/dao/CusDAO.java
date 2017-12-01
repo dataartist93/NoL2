@@ -6,7 +6,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Properties;
 
 import com.nol2.model.vo.CusVO;
@@ -18,7 +17,6 @@ public class CusDAO {
 	ResultSet rs;
 	Properties pro;
 
-	
 	public CusDAO() {
 		try {
 			pro = new Properties();
@@ -50,38 +48,37 @@ public class CusDAO {
 			e.printStackTrace();
 		}
 	}
-	
-	//insert
-	public boolean insert(CusVO vo) {
-	      connect();
-	      try { 
-	         String sql = "insert into customer values(customer_seq.nextval,event_seq.nextval,?,?,?,?,?,?,?,?)";
-	         pstmt = conn.prepareStatement(sql);
-	         pstmt.setString(1, vo.getID());
-	         pstmt.setString(2, vo.getPassword());
-	         pstmt.setInt(3, vo.getJumin1());
-	         pstmt.setInt(4, vo.getJumin2());
-	         pstmt.setString(5, vo.getName());
-	         pstmt.setString(6, vo.getTel());
-	         pstmt.setString(7, vo.getAddr()); 
-	         pstmt.setString(8, vo.getPerinfo());
-	         pstmt.executeUpdate();
 
-	         return true;
-	      } catch (SQLException e) {
-	         e.printStackTrace();
-	      } finally {
-	         disconnect();
-	      }
-	      return false;
-	   }
+	// insert
+	public boolean insert(CusVO vo) {
+		connect();
+		try {
+			String sql = "insert into customer values(customer_seq.nextval,event_seq.nextval,?,?,?,?,?,?,?,?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, vo.getID());
+			pstmt.setString(2, vo.getPassword());
+			pstmt.setInt(3, vo.getJumin1());
+			pstmt.setInt(4, vo.getJumin2());
+			pstmt.setString(5, vo.getName());
+			pstmt.setString(6, vo.getTel());
+			pstmt.setString(7, vo.getAddr());
+			pstmt.setString(8, vo.getPerinfo());
+			pstmt.executeUpdate();
+
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return false;
+	}
 
 	// delete
 	public boolean delete(String ID, String Password, int Jumin1, int Jumin2) {
 		connect();
 		try {
-			String sql = "delete from customer where cusID=? and Password=? and"
-					+ "jumin1=? and jumin2=? ";
+			String sql = "delete from customer where cusID=? and Password=? and" + "jumin1=? and jumin2=? ";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, ID);
 			pstmt.setString(2, Password);
@@ -147,7 +144,7 @@ public class CusDAO {
 		}
 		return cusvo;
 	}
-	
+
 	public boolean checkID(String ID) {
 		connect();
 		try {
