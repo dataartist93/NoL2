@@ -2,6 +2,7 @@ package com.nol2.view;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -43,8 +44,7 @@ public class MainView extends JFrame {
       setDefaultCloseOperation(EXIT_ON_CLOSE);
        
    }//생성자 
-    
-    public static void main(String[] args) {
-      new MainView();
-   }
+    public void showMsg(String msg) {
+		JOptionPane.showMessageDialog(this, msg);
+	}// showMsg
 }

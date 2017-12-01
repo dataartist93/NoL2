@@ -50,33 +50,31 @@ public class CusDAO {
 			e.printStackTrace();
 		}
 	}
-
-	// insert
+	
+	//insert
 	public boolean insert(CusVO vo) {
-		connect();
-		try {
-			String sql = "insert into customer values(?,?,?,?,?,?,?,?,?,?)";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, vo.getCusno());
-			pstmt.setInt(2, vo.getEventno());
-			pstmt.setString(3, vo.getID());
-			pstmt.setString(4, vo.getPassword());
-			pstmt.setInt(5, vo.getJumin1());
-			pstmt.setInt(6, vo.getJumin2());
-			pstmt.setString(7, vo.getName());
-			pstmt.setString(8, vo.getTel());
-			pstmt.setString(9, vo.getAddr());
-			pstmt.setString(10, vo.getPerinfo());
-			pstmt.executeUpdate();
+	      connect();
+	      try { 
+	         String sql = "insert into customer values(customer_seq.nextval,event_seq.nextval,?,?,?,?,?,?,?,?)";
+	         pstmt = conn.prepareStatement(sql);
+	         pstmt.setString(1, vo.getID());
+	         pstmt.setString(2, vo.getPassword());
+	         pstmt.setInt(3, vo.getJumin1());
+	         pstmt.setInt(4, vo.getJumin2());
+	         pstmt.setString(5, vo.getName());
+	         pstmt.setString(6, vo.getTel());
+	         pstmt.setString(7, vo.getAddr());
+	         pstmt.setString(8, vo.getPerinfo());
+	         pstmt.executeUpdate();
 
-			return true;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			disconnect();
-		}
-		return false;
-	}
+	         return true;
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         disconnect();
+	      }
+	      return false;
+	   }
 
 	// delete
 	public boolean delete(String ID, String Password, int Jumin1, int Jumin2) {
@@ -154,7 +152,7 @@ public class CusDAO {
 	public boolean selectLogin(String ID, String Password) {
 		connect();
 		try {
-			String sql = "select count(*) from customer where ID=? and Password=?";
+			String sql = "select count(*) from customer where cusid=? and Password=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, ID);
 			pstmt.setString(2, Password);

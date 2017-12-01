@@ -128,14 +128,27 @@ public class Join extends JFrame {
 	      }
 
 	      setBounds(350, 200, 300, 450);
-	      setVisible(true);
+	      //setVisible(true);
 	      setResizable(false);
 	   }// 생성자
-
 	   
-	   public static void main(String[] args) {
-		new Join();
-	}
+	   public void init() {
+		   tf_id.setText("");
+		   tf_name.setText(""); 		   
+		   tf_ssn1.setText("");
+		   tf_ssn2.setText("");
+		   tf_tel1.setText("");
+		   tf_tel2.setText("");
+		   tf_tel3.setText("");
+		   tf_addr.setText("");
+		   rb1.setSelected(false);
+		   rb2.setSelected(false);
+	   }
+
+	   public void showMsg(String msg) {
+			 JOptionPane.showMessageDialog(this, msg); 
+		  }//showMsg
+		 
 	}// JoinFormW
 
 
