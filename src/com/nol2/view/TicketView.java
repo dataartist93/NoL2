@@ -2,6 +2,7 @@ package com.nol2.view;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
@@ -12,36 +13,38 @@ import javax.swing.table.TableRowSorter;
 
 public class TicketView extends JFrame {
 
-	public JButton bt_EnterTicket,bt_ThemeTicket,bt_FreeTicket,bt_pay,bt_cancle;
+	public JButton bt_EnterTicket, bt_ThemeTicket, bt_FreeTicket, bt_pay, bt_cancle;
 	public JTable table;
 	public JScrollPane scrol_table;
 	public DefaultTableModel dtm;
+	JLabel la_priceAll;
 	DefaultTableCellRenderer dctr;
 	TableColumnModel tcm;
-	
+
 	public TicketView() {
-		
+
 		setTitle("티켓주문창");
-		
+
 		bt_FreeTicket = new JButton("자유이용권");
 		bt_EnterTicket = new JButton("입장권");
 		bt_ThemeTicket = new JButton("테마이용권");
-		
+
+		la_priceAll = new JLabel("총 주문금액 :");
 		bt_pay = new JButton("결제");
 		bt_cancle = new JButton("취소");
-		
+
 		Object[][] data = new Object[0][5];
-	    Object[] columnNames = { "티켓종류","구분","수량", "가격","날짜" };
-	    dtm = new DefaultTableModel(data, columnNames);
-	    table = new JTable(dtm);
-	    scrol_table = new JScrollPane(table);
+		Object[] columnNames = { "티켓종류", "구분", "수량", "가격", "날짜" };
+		dtm = new DefaultTableModel(data, columnNames);
+		table = new JTable(dtm);
+		scrol_table = new JScrollPane(table);
 		TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(dtm);
 		table.setRowSorter(sorter);
 
 		dctr = new DefaultTableCellRenderer();
 		dctr.setHorizontalAlignment(SwingConstants.CENTER);
 		tcm = table.getColumnModel();
-		for(int i=0; i<columnNames.length; i++) {
+		for (int i = 0; i < columnNames.length; i++) {
 			tcm.getColumn(i).setCellRenderer(dctr);
 		}
 	    
@@ -69,6 +72,8 @@ public class TicketView extends JFrame {
 		
 		
 	}//생성자
+
+
 	
 	public static void main(String[] args) {
 		new TicketView();
