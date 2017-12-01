@@ -2,6 +2,7 @@ package com.nol2.view;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -30,6 +31,7 @@ public class MainView extends JFrame {
       bt_Event.setBounds(416, 713, 276, 40);
       bt_FreePass.setBounds(126, 643, 566, 58);
       bt_MyPage.setBounds(556, 49, 101, 40);
+      	bt_MyPage.setVisible(false);
       
       getContentPane().setLayout(null);
       getContentPane().add(bt_Login);
@@ -43,11 +45,10 @@ public class MainView extends JFrame {
       setBounds(400,100,800,850);
       setVisible(true);
       setResizable(false);
-      setDefaultCloseOperation(EXIT_ON_CLOSE);
+      //setDefaultCloseOperation(EXIT_ON_CLOSE);
        
    }//생성자 
-    
-    public static void main(String[] args) {
-      new MainView();
-   }
+    public void showMsg(String msg) {
+		JOptionPane.showMessageDialog(this, msg);
+	}// showMsg
 }

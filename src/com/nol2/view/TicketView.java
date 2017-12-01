@@ -48,6 +48,7 @@ public class TicketView extends JFrame {
 			tcm.getColumn(i).setCellRenderer(dctr);
 		}
 
+
 		bt_FreeTicket.setBounds(95, 134, 604, 73);
 		bt_EnterTicket.setBounds(95, 304, 604, 71);
 		bt_ThemeTicket.setBounds(95, 219, 604, 73);
@@ -75,6 +76,8 @@ public class TicketView extends JFrame {
 
 	}// 생성자
 
+
+	
 	public static void main(String[] args) {
 		new TicketView();
 	}
