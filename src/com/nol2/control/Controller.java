@@ -19,36 +19,53 @@ import com.nol2.view.TicketView;
 public class Controller implements ActionListener {
 	MainView mainview;
 	Join joinview;
+	FindIDView findidview;
 	FindPW_View findpassview;
 	TicketView ticketview;
 	ValidCheck validcheck;
 	LoginForm loginform;
+	
 
 
 	public Controller() {
 		mainview = new MainView();
 		loginform = new LoginForm();
 		findpassview = new FindPW_View();
+		findidview = new FindIDView();
 		joinview = new Join();
 		ticketview = new TicketView();
 		eventUp();
 	}
 
 	public void eventUp() {
-		mainview.bt_Login.addActionListener(this);
+		// MainView
+		mainview.bt_Login.addActionListener(this); 
 		mainview.bt_Logout.addActionListener(this);
 		mainview.bt_Order.addActionListener(this);
-
+		
+		// LoginView
 		loginform.bt_login.addActionListener(this);
 		loginform.bt_join.addActionListener(this);
+		loginform.bt_finId.addActionListener(this);
 		loginform.bt_finPass.addActionListener(this);
-		loginform.addWindowListener(new WindowAdapter() { // form에서 x버튼을 눌렀을 때!
+		loginform.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
 				loginform.setVisible(false);
 			}
 		});
-
+		
+		//Find_IDView
+		findidview.bt_submit.addActionListener(this);
+		findidview.bt_reset.addActionListener(this);
+		findidview.addWindowListener(new WindowAdapter() { 
+			@Override
+			public void windowClosing(WindowEvent e) {
+				findpassview.setVisible(false);
+			}
+		});
+		
+		//Find_PassView
 		findpassview.bt_confirm.addActionListener(this);
 		findpassview.bt_cancel.addActionListener(this);
 		findpassview.addWindowListener(new WindowAdapter() { // form에서 x버튼을 눌렀을 때!
@@ -57,7 +74,8 @@ public class Controller implements ActionListener {
 				findpassview.setVisible(false);
 			}
 		});
-
+		
+		//JoinView
 		joinview.bt_checkid.addActionListener(this);
 		joinview.bt_submit.addActionListener(this);
 		joinview.bt_reset.addActionListener(this);
@@ -69,7 +87,7 @@ public class Controller implements ActionListener {
 		});
 
 	
-
+		//TicketView
 		ticketview.bt_cancle.addActionListener(this);
 		ticketview.addWindowListener(new WindowAdapter() { // form에서 x버튼을 눌렀을 때!
 			@Override
@@ -91,8 +109,9 @@ public class Controller implements ActionListener {
 			ticketview.setVisible(true);
 		}
 
-		else if (ob == mainview.bt_Logout) {
+		else if (ob == mainview.bt_Logout) { // MainView에서 로그아웃 버튼 클릭
 			mainview.bt_Logout.setVisible(false);
+			mainview.bt_MyPage.setVisible(false);
 			mainview.bt_Login.setVisible(true);
 			mainview.showMsg("로그아웃 되었습니다!");
 		}
@@ -100,6 +119,10 @@ public class Controller implements ActionListener {
 		else if (ob == loginform.bt_join) { // LoginForm에서 회원가입 버튼 클릭
 			loginform.setVisible(false);
 			joinview.setVisible(true);
+		}
+		
+		else if (ob == loginform.bt_finId) { //LoginForm에서 아이디 찾기 버튼 클릭
+			findidview.setVisible(true);
 		}
 
 		else if (ob == loginform.bt_finPass) { // LoginForm에서 비밀번호찾기 버튼 클릭
@@ -117,12 +140,37 @@ public class Controller implements ActionListener {
 				loginform.init();
 				mainview.bt_Login.setVisible(false);
 				mainview.bt_Logout.setVisible(true);
+				mainview.bt_MyPage.setVisible(true);
 				loginform.setVisible(false);
 			}
 
 			else { // 로그인 실패
-				loginform.showMsg("실패 ..");
+				loginform.showMsg("회원정보가 일치하지 않습니다.");
 			}
+		}
+		
+		else if (ob == findidview.bt_submit) { // FindIdView에서 확인 버튼 클릭
+			CusDAO cusdao = new CusDAO();
+			String Name = findidview.tf_name.getText();
+			int Jumin1 = Integer.parseInt(findidview.tf_jumin1.getText());
+			int Jumin2 = Integer.parseInt(findidview.tf_jumin2.getText());
+			
+			String FindID = cusdao.findID(Name, Jumin1, Jumin2);
+			if(FindID != null) {
+				findidview.showMsg("ID는 " + FindID + " 입니다.");
+				findidview.init();
+				findidview.setVisible(false);
+			}
+			
+			else {
+				findidview.init();
+				findidview.showMsg("일치하는 정보가 없습니다.");
+			}
+			
+		}
+		
+		else if(ob == findidview.bt_reset) {
+			findidview.setVisible(false);
 		}
 
 		else if (ob == findpassview.bt_confirm) { // FindPW_View에서 확인버튼 클릭
@@ -186,13 +234,13 @@ public class Controller implements ActionListener {
 					return;
 				}
 
-				/*else { // insert 실패
+				else { // insert 실패
 					joinview.showMsg("처리되지 않았습니다..");
-				}*/
+				}
 
-			else {
+		
 				joinview.showMsg("주민등록번호를 제대로 입력하세요!");
-			}
+			
 		}
 
 		else if (ob == joinview.bt_reset) {
@@ -209,11 +257,7 @@ public class Controller implements ActionListener {
 			mainview.setVisible(true);
 		}
 	}
-
-
-	
 	public static void main(String[] args) {
-		System.out.println("야호");
 		new Controller();
 	}
 
