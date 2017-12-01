@@ -14,13 +14,14 @@ public class EventView extends JFrame{
 		getContentPane().setForeground(Color.PINK);
 		la_title = new JLabel("노리의 모험");
 		la_title.setForeground(Color.PINK);
-		la_title.setFont(new Font("나눔손글씨체", Font.PLAIN, 50));
 		
 		getContentPane().setLayout(null);
 		la_title.setBounds(140,12,164,40);
 		
 		getContentPane().add(la_title);
 		
+		setLayout(null);
+		setBounds(350, 200, 325, 482);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
