@@ -59,7 +59,7 @@ public class FindPW_View extends JFrame {
 		getContentPane().add(la_jumin2);
 
 		setBounds(350, 200, 350, 350);
-		setVisible(true);
+		//setVisible(true);
 		setResizable(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -69,7 +69,4 @@ public class FindPW_View extends JFrame {
 		JOptionPane.showMessageDialog(this, msg);
 	}// showMsg
 
-	public static void main(String[] args) {
-		new FindPW_View();
-	}// main
 }

@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import com.nol2.model.dao.CusDAO;
 import com.nol2.model.vo.CusVO;
 import com.nol2.view.FindID;
+import com.nol2.view.FindPW_View;
 import com.nol2.view.Join;
 import com.nol2.view.LoginForm;
 import com.nol2.view.MainView;
@@ -15,10 +16,12 @@ public class Controller implements ActionListener {
 	LoginForm loginform;
 	Join joinview;
 	FindID findidview;
+	FindPW_View findpassview;
 
 	public Controller() {
 		mainview = new MainView();
 		loginform = new LoginForm();
+		findpassview = new FindPW_View();
 		joinview = new Join();
 		findidview = new FindID();
 		eventUp();
@@ -27,8 +30,11 @@ public class Controller implements ActionListener {
 	public void eventUp() {
 		mainview.bt_Login.addActionListener(this);
 		mainview.bt_Logout.addActionListener(this);
+		
 		loginform.bt_login.addActionListener(this);
 		loginform.bt_join.addActionListener(this);
+		loginform.bt_finPass.addActionListener(this);
+		
 		joinview.bt_submit.addActionListener(this);
 		findidview.bt_submit.addActionListener(this);
 	}
@@ -51,6 +57,10 @@ public class Controller implements ActionListener {
 			joinview.setVisible(true);
 		}
 		
+		else if(ob == loginform.bt_finPass) { // LoginForm에서 비밀번호찾기 버튼 클릭
+			findpassview.setVisible(true);
+		}
+		
 		else if(ob == loginform.bt_login) { // LoginForm에서 로그인 버튼 클릭
 			CusDAO cusdao = new CusDAO();
 			
@@ -68,6 +78,11 @@ public class Controller implements ActionListener {
 			else { // 로그인 실패
 				loginform.showMsg("실패 ..");
 			}
+			
+		}
+		
+		else if(ob == findpassview.bt_confirm) { // FindPW_View에서 확인버튼 클릭
+			CusDAO cusdao = new CusDAO();
 			
 		}
 		
