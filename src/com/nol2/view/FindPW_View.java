@@ -70,17 +70,22 @@ public class FindPW_View extends JFrame {
 		getContentPane().add(la_jumin1);
 		getContentPane().add(la_jumin2);
 
-<<<<<<< HEAD
-		setBounds(350, 200, 350, 350);
-		//setVisible(true);
-=======
+
 		setBounds(350, 200, 365, 356);
-		setVisible(true);
->>>>>>> 5baa6bb6b990e54d81a618293280d688acb1f13b
+		//setVisible(true);
 		setResizable(true);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 	}// 생성자
+	
+	public void init() {
+		tf_id.setText("");
+		tf_tel1.setText("");
+		tf_tel2.setText("");
+		tf_tel3.setText("");
+		tf_jumin1.setText("");
+		pf_jumin2.setText("");
+	}
 
 	public void showMsg(String msg) {
 		JOptionPane.showMessageDialog(this, msg);

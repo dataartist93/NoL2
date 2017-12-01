@@ -31,6 +31,7 @@ public class MainView extends JFrame {
       bt_Event.setBounds(416, 713, 276, 40);
       bt_FreePass.setBounds(126, 643, 566, 58);
       bt_MyPage.setBounds(556, 49, 101, 40);
+      	bt_MyPage.setVisible(false);
       
       getContentPane().setLayout(null);
       getContentPane().add(bt_Login);

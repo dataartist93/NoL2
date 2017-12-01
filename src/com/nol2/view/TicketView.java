@@ -64,9 +64,9 @@ public class TicketView extends JFrame {
 	    getContentPane().add(bt_cancle);
 	    
 	    setBounds(400,100,800,850);
-	    setVisible(true);
+	    //setVisible(true);
 	    setResizable(false);
-	    setDefaultCloseOperation(EXIT_ON_CLOSE);
+	   // setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		
 	}//생성자
