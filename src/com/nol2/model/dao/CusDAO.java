@@ -80,12 +80,8 @@ public class CusDAO {
 	public boolean delete(String ID, String Password, int Jumin1, int Jumin2) {
 		connect();
 		try {
-<<<<<<< HEAD
-			String sql = "delete from customer where ID=? and Password=? and" + "jumin1=? and jumin2=? ";
-=======
 			String sql = "delete from customer where cusID=? and Password=? and"
 					+ "jumin1=? and jumin2=? ";
->>>>>>> upstream/master
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, ID);
 			pstmt.setString(2, Password);

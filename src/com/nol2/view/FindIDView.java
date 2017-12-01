@@ -49,7 +49,7 @@ public class FindIDView extends JFrame {
 		setBounds(350, 200, 301, 285);
 		//setVisible(true);
 		setResizable(false);
-	}// ������
+	}
 
 	public void showMsg(String msg) {
 		JOptionPane.showMessageDialog(this, msg);
