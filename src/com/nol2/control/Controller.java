@@ -249,10 +249,8 @@ public class Controller implements ActionListener {
 				perinfo = "N";
 			}
 
-			CusVO cusvo = new CusVO(0, 0, ID, Password, Jumin1, Jumin2, Name, Tel, addr, perinfo); // Primary key
-																									// 자리에
-																									// seq 해야함 !!
-
+			CusVO cusvo = new CusVO(0, 0, ID, Password, Jumin1, Jumin2, Name, Tel, addr, perinfo);
+			
 			if (cusdao.insert(cusvo)) { // insert 성공
 				joinview.showMsg("가입되었습니다!");
 				joinview.setVisible(false);
