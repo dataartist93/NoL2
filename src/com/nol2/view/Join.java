@@ -11,6 +11,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 public class Join extends JFrame {
+
 	public JTextField tf_id, tf_name, tf_ssn1, tf_tel1, tf_tel2, tf_tel3, tf_addr;
 	public JPasswordField tf_pass, tf_pass2, tf_ssn2;
 	public JButton bt_submit, bt_reset, bt_checkid;
@@ -123,8 +124,25 @@ public class Join extends JFrame {
 		}
 
 		setBounds(350, 200, 300, 450);
-		setVisible(false);
+		// setVisible(true);
 		setResizable(false);
 	}// 생성자
+
+	public void init() {
+		tf_id.setText("");
+		tf_name.setText("");
+		tf_ssn1.setText("");
+		tf_ssn2.setText("");
+		tf_tel1.setText("");
+		tf_tel2.setText("");
+		tf_tel3.setText("");
+		tf_addr.setText("");
+		rb1.setSelected(false);
+		rb2.setSelected(false);
+	}
+
+	public void showMsg(String msg) {
+		JOptionPane.showMessageDialog(this, msg);
+	}// showMsg
 
 }// JoinFormW
