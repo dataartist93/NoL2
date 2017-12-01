@@ -136,10 +136,7 @@ public class TicketDAO {
 			disconnect();
 		}
 		return list;
-<<<<<<< HEAD
 
-=======
->>>>>>> upstream/master
 	}// sellectAll
 
 }// TicketDAO
