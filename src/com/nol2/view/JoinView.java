@@ -130,8 +130,6 @@ public class JoinView extends JFrame {
 	  public void showMsg(String msg) {
 			 JOptionPane.showMessageDialog(this, msg); 
 		  }//showMsg
-	  
-	
 	   
 	}//JoinForm
 

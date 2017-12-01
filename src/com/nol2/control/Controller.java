@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import com.nol2.model.dao.CusDAO;
 import com.nol2.model.vo.CusVO;
-import com.nol2.view.FindID;
+import com.nol2.view.FindIDView;
 import com.nol2.view.JoinView;
 import com.nol2.view.LoginForm;
 import com.nol2.view.MainView;
@@ -15,13 +15,13 @@ public class Controller implements ActionListener {
 	LoginForm loginform;
 	JoinView joinview;
 
-	FindID findidview;
+	FindIDView findidview;
 
 	public Controller() {
 		mainview = new MainView();
 		loginform = new LoginForm();
 		joinview = new JoinView();
-		findidview = new FindID();
+		findidview = new FindIDView();
 		eventUp();
 	}
 
@@ -59,8 +59,8 @@ public class Controller implements ActionListener {
 		else if (ob == findidview.bt_submit) {
 			CusDAO cusdao = new CusDAO();
 			String Name = findidview.tf_name.getText();
-			int ssn1 = Integer.parseInt(findidview.tf_ssn1.getText());
-			int ssn2 = Integer.parseInt(findidview.tf_ssn2.getText());
+			int ssn1 = Integer.parseInt(findidview.tf_jumin1.getText());
+			int ssn2 = Integer.parseInt(findidview.tf_jumin2.getText());
 
 			String ID = cusdao.findID(Name, ssn1, ssn2);
 
