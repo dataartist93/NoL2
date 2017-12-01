@@ -7,22 +7,15 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
 public class PaymentView extends JFrame{
 	
-	JPanel p1,p2,p3;
 	public JButton bt_confirm, bt_cancle;
 	JLabel la_pay, la_discount;
 	
 	public PaymentView() {
-		
-
-		
-		String payment[] = {"핸드폰", "카드"}; 
-
-		
+	
 		bt_confirm = new JButton("확인");
 		bt_cancle = new JButton("취소");
 		
@@ -58,8 +51,12 @@ public class PaymentView extends JFrame{
 		
 		setTitle("결제창");
 		setBounds(500,200,380,500);
-		setVisible(false);
+		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+	
+	public static void main(String[] args) {
+		new PaymentView();
 	}
 	
 
