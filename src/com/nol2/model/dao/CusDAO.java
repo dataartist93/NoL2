@@ -201,11 +201,11 @@ public class CusDAO {
 			pstmt.setInt(2, Jumin1);
 			pstmt.setInt(3, Jumin2);
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			if (rs.next()) {
 				id = rs.getString(1);
 				return id;
-			}			
-			
+			}
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -226,11 +226,11 @@ public class CusDAO {
 			pstmt.setInt(3, Jumin1);
 			pstmt.setInt(4, Jumin2);
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				Password=rs.getString(1);
+			if (rs.next()) {
+				Password = rs.getString(1);
 				return Password;
 			}
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

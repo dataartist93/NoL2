@@ -8,7 +8,8 @@ import java.awt.event.WindowEvent;
 import com.nol2.model.ValidCheck;
 import com.nol2.model.dao.CusDAO;
 import com.nol2.model.vo.CusVO;
-import com.nol2.view.FindID;
+import com.nol2.view.FindIDView;
+import com.nol2.view.JoinView;
 import com.nol2.view.FindPW_View;
 import com.nol2.view.Join;
 import com.nol2.view.LoginForm;
@@ -17,19 +18,18 @@ import com.nol2.view.TicketView;
 
 public class Controller implements ActionListener {
 	MainView mainview;
-	LoginForm loginform;
 	Join joinview;
-	FindID findidview;
 	FindPW_View findpassview;
 	TicketView ticketview;
 	ValidCheck validcheck;
+	LoginForm loginform;
+
 
 	public Controller() {
 		mainview = new MainView();
 		loginform = new LoginForm();
 		findpassview = new FindPW_View();
 		joinview = new Join();
-		findidview = new FindID();
 		ticketview = new TicketView();
 		eventUp();
 	}
@@ -68,7 +68,7 @@ public class Controller implements ActionListener {
 			}
 		});
 
-		findidview.bt_submit.addActionListener(this);
+	
 
 		ticketview.bt_cancle.addActionListener(this);
 		ticketview.addWindowListener(new WindowAdapter() { // form에서 x버튼을 눌렀을 때!
@@ -199,17 +199,7 @@ public class Controller implements ActionListener {
 			joinview.setVisible(false);
 		}
 
-		else if (ob == findidview.bt_submit) {
-			CusDAO cusdao = new CusDAO();
-			String Name = findidview.tf_name.getText();
-			int ssn1 = Integer.parseInt(findidview.tf_ssn1.getText());
-			int ssn2 = Integer.parseInt(findidview.tf_ssn2.getText());
-
-			String ID = cusdao.findID(Name, ssn1, ssn2);
-
-			findidview.showMsg(ID);
-		}
-
+		
 		else if (ob == findpassview.bt_cancel) {
 			findpassview.setVisible(false);
 		}
