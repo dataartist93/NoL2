@@ -123,13 +123,17 @@ public class JoinView extends JFrame {
 			}*/
 			
 			setBounds(350,200,300,450);		
-			//setVisible(true);
+			setVisible(true);
 			setResizable(false);
 		}//������  
 	  
 	  public void showMsg(String msg) {
 			 JOptionPane.showMessageDialog(this, msg); 
 		  }//showMsg
+	  public static void main(String[] args) {
+		
+		  new JoinView();
+	}
 	   
 	}//JoinForm
 
