@@ -7,13 +7,14 @@ import javax.swing.JTextField;
 
 public class MainView extends JFrame {
 
-    public JButton bt_Login,bt_Logout,bt_Order,bt_Guide,bt_Event,bt_FreePass;
+    public JButton bt_Login,bt_Logout,bt_Order,bt_Guide,bt_Event,bt_FreePass,bt_MyPage;
 
     public MainView() {
       setTitle("환상의 나라");
       
       bt_Logout = new JButton("로그아웃");            
       bt_Login = new JButton("로그인");
+      bt_MyPage = new JButton("내 정보");
       
       bt_Order = new JButton("티켓주문"); 
       bt_Guide = new JButton("시설안내"); 
@@ -28,10 +29,12 @@ public class MainView extends JFrame {
       bt_Guide.setBounds(126, 713, 276, 40);
       bt_Event.setBounds(416, 713, 276, 40);
       bt_FreePass.setBounds(126, 643, 566, 58);
+      bt_MyPage.setBounds(556, 49, 101, 40);
       
       getContentPane().setLayout(null);
       getContentPane().add(bt_Login);
       getContentPane().add(bt_Logout);
+      getContentPane().add(bt_MyPage);
       getContentPane().add(bt_Order);
       getContentPane().add(bt_Guide);
       getContentPane().add(bt_Event);
