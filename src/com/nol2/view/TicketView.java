@@ -51,7 +51,6 @@ public class TicketView extends JFrame {
 	    bt_ThemeTicket.setBounds(95, 219, 604, 73);
 	    
 	    scrol_table.setBounds(95, 387, 604, 318);
-	    
 	    bt_pay.setBounds(95, 731, 214, 50);
 	    bt_cancle.setBounds(485, 731, 214, 50);
 	    
