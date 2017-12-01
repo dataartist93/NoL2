@@ -280,10 +280,32 @@ public class Controller implements ActionListener {
 				findpassview.setVisible(false);
 			}
 
-			else if (ob == ticketview.bt_cancle) { // TicketView에서 취소 버튼 클릭
-				ticketview.setVisible(false);
-				mainview.setVisible(true);
-			}
+
+		
+
+		
+
+		else if (ob == ticketview.bt_cancle) { // TicketView에서 취소 버튼 클릭
+			ticketview.setVisible(false);
+			mainview.setVisible(true);
+		}
+
+		else if (ob == ticketview.bt_FreeTicket) { // TicketView에서 자유이용권 버튼을 클릭했을 때
+			ticketname = "자유이용권";
+			payview.setVisible(true);
+		}
+
+		else if (ob == ticketview.bt_ThemeTicket) { // TicketView에서 테마이용 버튼을 클릭했을 때
+			ticketname = "테마이용권";
+			payview.setVisible(true);
+		}
+
+		else if (ob == ticketview.bt_EnterTicket) { // TicketView에서 입장권 버튼을 클릭했을 때
+			ticketname = "입장권";
+			payview.setVisible(true);
+		}
+
+
 
 			else if (ob == ticketview.bt_FreeTicket) { // TicketView에서 자유이용권 버튼을 클릭했을 때
 				ticketname = "자유이용권";
