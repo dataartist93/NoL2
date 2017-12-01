@@ -19,6 +19,7 @@ public class PayView extends JFrame{
 	public JLabel adult_define,child_define,handy_define;
 	
 	public JButton bt_submit,bt_cancle;
+	public JComboBox cmb_adult, cmb_handy, cmb_child, cmb_year, cmb_month, cmb_date;
 	
 	
 		
@@ -41,12 +42,12 @@ public class PayView extends JFrame{
 		bt_cancle = new JButton("취소");
 		
 		
-		JComboBox cmb_year = new JComboBox();		 
+		cmb_year = new JComboBox();		 
 		 	int years= Calendar.getInstance().get(Calendar.YEAR);
 		 	for (int i = 0; i < 11; i++) {
 				cmb_year.addItem(years+i+"");
 			}		 	
-		JComboBox cmb_month = new JComboBox();	
+		cmb_month = new JComboBox();	
 		
 		int []dateCnt= {31,28,31,30,31,
 				       30,31,31,30,31,
@@ -54,7 +55,7 @@ public class PayView extends JFrame{
 			for (int i = 1; i < 13; i++) {
 				cmb_month.addItem(""+i);
 			}
-		JComboBox cmb_date = new JComboBox();
+		cmb_date = new JComboBox();
 			for (int i = 1; i < 32; i++) {
 				cmb_date.addItem(""+i);
 			}
@@ -75,16 +76,16 @@ public class PayView extends JFrame{
 					}
 				}
 			});
-		JComboBox cmb_adult = new JComboBox();
-			for (int i = 1; i < 51; i++) {
+		cmb_adult = new JComboBox();
+			for (int i = 0; i < 51; i++) {
 				cmb_adult.addItem(""+i);
 			}
-		JComboBox cmb_handy = new JComboBox();
-			for (int i = 1; i < 51; i++) {
+		 cmb_handy = new JComboBox();
+			for (int i = 0; i < 51; i++) {
 				cmb_handy.addItem(""+i);
 			}
-		JComboBox cmb_child = new JComboBox();
-			for (int i = 1; i < 51; i++) {
+		cmb_child = new JComboBox();
+			for (int i = 0; i < 51; i++) {
 				cmb_child.addItem(""+i);
 			}
 		
@@ -136,13 +137,18 @@ public class PayView extends JFrame{
 				
 		
 		setBounds(1200,100,600,850);
-		setVisible(true);
+		//setVisible(true);
 		setResizable(false);
+	
 				
 	}//생성자
 	
-	
-	public static void main(String[] args) {
-		new PayView();
+	public void init() {
+		cmb_adult.setSelectedIndex(0);
+		cmb_child.setSelectedIndex(0);
+		cmb_handy.setSelectedIndex(0);
+		cmb_year.setSelectedIndex(0);
+		cmb_month.setSelectedIndex(0);
+		cmb_date.setSelectedIndex(0);
 	}
 }

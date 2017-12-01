@@ -63,7 +63,7 @@ public class CusDAO {
 	         pstmt.setInt(4, vo.getJumin2());
 	         pstmt.setString(5, vo.getName());
 	         pstmt.setString(6, vo.getTel());
-	         pstmt.setString(7, vo.getAddr());
+	         pstmt.setString(7, vo.getAddr()); 
 	         pstmt.setString(8, vo.getPerinfo());
 	         pstmt.executeUpdate();
 
