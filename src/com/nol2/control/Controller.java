@@ -283,15 +283,7 @@ public class Controller implements ActionListener {
 
 		
 
-		}
-
-		else if (ob == joinview.bt_reset) { // JoinView에서 취소 버튼 클릭
-			joinview.setVisible(false);
-		}
-
-		else if (ob == findpassview.bt_cancel) { // FindPassView에서 취소 버튼 클릭
-			findpassview.setVisible(false);
-		}
+		
 
 		else if (ob == ticketview.bt_cancle) { // TicketView에서 취소 버튼 클릭
 			ticketview.setVisible(false);
@@ -313,24 +305,7 @@ public class Controller implements ActionListener {
 			payview.setVisible(true);
 		}
 
-		else if (ob == payview.bt_submit) { // PayView에서 확인 버튼을 클릭했을 때
-	
-			if (!payview.cmb_adult.getSelectedItem().equals("0")) { //어른 선택 시 테이블 추가
-				Object[] obj = { ticketname, // 티켓이름
-						payview.adult.getText(), // 구분
-						payview.cmb_adult.getSelectedItem(), // 수량
-						Integer.parseInt((String) payview.cmb_adult.getSelectedItem()) * 1000, // 가격
-						payview.cmb_year.getSelectedItem() + "-" + payview.cmb_month.getSelectedItem() + "-" //일자
-								+ payview.cmb_date.getSelectedItem()
 
-				};
-				ticketview.dtm.addRow(obj);
-
-			else if (ob == ticketview.bt_cancle) { // TicketView에서 취소 버튼 클릭
-				ticketview.setVisible(false);
-				mainview.setVisible(true);
-
-			}
 
 			else if (ob == ticketview.bt_FreeTicket) { // TicketView에서 자유이용권 버튼을 클릭했을 때
 				ticketname = "자유이용권";
