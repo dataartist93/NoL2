@@ -164,6 +164,10 @@ alter table customer
 add constraint event_eventno_fk foreign key (eventno)
 references event(eventno);
 
+alter table customer
+drop constraint event_eventno_fk;
+
+
 alter table event
 add constraint nol3emp_empno_fk foreign key (empno)
 references nol2emp(empno);
