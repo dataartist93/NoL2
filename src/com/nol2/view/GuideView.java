@@ -161,7 +161,4 @@ public class GuideView extends JFrame {
 	    setResizable(false);
 	}//생성자
 	
-	public static void main(String[] args) {
-		new GuideView();
-	}
 }
