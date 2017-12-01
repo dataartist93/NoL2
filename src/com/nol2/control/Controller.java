@@ -258,15 +258,15 @@ public class Controller implements ActionListener {
 
 		}
 
-		else if (ob == joinview.bt_reset) {
+		else if (ob == joinview.bt_reset) { // JoinView에서 취소 버튼 클릭
 			joinview.setVisible(false);
 		}
 
-		else if (ob == findpassview.bt_cancel) {
+		else if (ob == findpassview.bt_cancel) { // FindPassView에서 취소 버튼 클릭
 			findpassview.setVisible(false);
 		}
 
-		else if (ob == ticketview.bt_cancle) {
+		else if (ob == ticketview.bt_cancle) { // TicketView에서 취소 버튼 클릭
 			ticketview.setVisible(false);
 			mainview.setVisible(true);
 		}
@@ -326,6 +326,10 @@ public class Controller implements ActionListener {
 			ticketname = null;
 			payview.init();
 			payview.setVisible(false);
+		}
+		
+		else if (ob == payview.bt_cancle) { // PayView에서 취소 버튼 클릭
+			
 		}
 	}
 
