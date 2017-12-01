@@ -47,34 +47,31 @@ public class TicketView extends JFrame {
 		for (int i = 0; i < columnNames.length; i++) {
 			tcm.getColumn(i).setCellRenderer(dctr);
 		}
-
-
-		bt_FreeTicket.setBounds(95, 134, 604, 73);
-		bt_EnterTicket.setBounds(95, 304, 604, 71);
-		bt_ThemeTicket.setBounds(95, 219, 604, 73);
-
-		scrol_table.setBounds(95, 387, 604, 234);
-
-		la_priceAll.setBounds(485, 650, 214, 50);
-
-		bt_pay.setBounds(95, 731, 214, 50);
-		bt_cancle.setBounds(485, 731, 214, 50);
-
-		getContentPane().setLayout(null);
-		getContentPane().add(bt_FreeTicket);
-		getContentPane().add(bt_EnterTicket);
-		getContentPane().add(bt_ThemeTicket);
-		getContentPane().add(scrol_table);
-		getContentPane().add(bt_pay);
-		getContentPane().add(bt_cancle);
-		getContentPane().add(la_priceAll);
-
-		setBounds(400, 100, 800, 850);
-		setVisible(true);
-		setResizable(false);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-
-	}// 생성자
+	    
+	    
+	    bt_FreeTicket.setBounds(95, 134, 604, 73);
+	    bt_EnterTicket.setBounds(95, 304, 604, 71);
+	    bt_ThemeTicket.setBounds(95, 219, 604, 73);
+	    
+	    scrol_table.setBounds(95, 387, 604, 318);
+	    bt_pay.setBounds(95, 731, 214, 50);
+	    bt_cancle.setBounds(485, 731, 214, 50);
+	    
+	    getContentPane().setLayout(null);
+	    getContentPane().add(bt_FreeTicket);
+	    getContentPane().add(bt_EnterTicket);
+	    getContentPane().add(bt_ThemeTicket);
+	    getContentPane().add(scrol_table);
+	    getContentPane().add(bt_pay);
+	    getContentPane().add(bt_cancle);
+	    
+	    setBounds(400,100,800,850);
+	    //setVisible(true);
+	    setResizable(false);
+	   // setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		
+	}//생성자
 
 
 	
