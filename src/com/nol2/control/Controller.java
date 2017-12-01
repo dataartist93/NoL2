@@ -28,18 +28,22 @@ public class Controller implements ActionListener {
 		mainview.bt_Login.addActionListener(this);
 		joinview.bt_submit.addActionListener(this);
 		findidview.bt_submit.addActionListener(this);
+		loginform.bt_join.addActionListener(this);  //회원가입창 열기 
+
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		Object ob = e.getSource();
-		
-		if(ob == mainview.bt_Login) {
-			loginform.setVisible(true);
-		}
-		
-		else if (ob == joinview.bt_submit) {
-			CusDAO cusdao = new CusDAO();
 
+		if (ob == mainview.bt_Login) {
+			loginform.setVisible(true);
+		} else if (ob == loginform.bt_join) {  //회원가입 클릭시 보여주기
+			joinview.setVisible(true);
+		}
+
+		else if (ob == joinview.bt_submit) {
+
+			CusDAO cusdao = new CusDAO();
 			String ID = joinview.tf_id.getText();
 			String Password = joinview.tf_pass.getText();
 			int Jumin1 = Integer.parseInt(joinview.tf_ssn1.getText());
@@ -50,14 +54,14 @@ public class Controller implements ActionListener {
 					+ joinview.tf_tel3.getText();
 			String addr = joinview.tf_addr.getText();
 			String perinfo = null;
-			if(joinview.rb1.isSelected()) {
-				perinfo = "Y";		
+			if (joinview.rb1.isSelected()) {
+				perinfo = "Y";
+			} else {
+				perinfo = "N";
 			}
-			else {
-				perinfo = "N";	
-			}
-			
-			CusVO cusvo = new CusVO(0, 0, ID, Password, Jumin1, Jumin2, Name, Tel, addr, perinfo); // Primary key 자리에 seq 해야함 !!
+
+			CusVO cusvo = new CusVO(0, 0, ID, Password, Jumin1, Jumin2, Name, Tel, addr, perinfo); // Primary key 자리에
+																									// seq 해야함 !!
 
 			cusdao.insert(cusvo);
 		}

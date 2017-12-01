@@ -54,19 +54,17 @@ public class CusDAO {
 	// insert
 	public boolean insert(CusVO vo) {
 		connect();
-		try {
-			String sql = "insert into customer values(?,?,?,?,?,?,?,?,?,?)";
+		try { 
+			String sql = "insert into customer values(customer_seq.nextval,event_seq.nextval,?,?,?,?,?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, vo.getCusno());
-			pstmt.setInt(2, vo.getEventno());
-			pstmt.setString(3, vo.getID());
-			pstmt.setString(4, vo.getPassword());
-			pstmt.setInt(5, vo.getJumin1());
-			pstmt.setInt(6, vo.getJumin2());
-			pstmt.setString(7, vo.getName());
-			pstmt.setString(8, vo.getTel());
-			pstmt.setString(9, vo.getAddr());
-			pstmt.setString(10, vo.getPerinfo());
+			pstmt.setString(1, vo.getID());
+			pstmt.setString(2, vo.getPassword());
+			pstmt.setInt(3, vo.getJumin1());
+			pstmt.setInt(4, vo.getJumin2());
+			pstmt.setString(5, vo.getName());
+			pstmt.setString(6, vo.getTel());
+			pstmt.setString(7, vo.getAddr());
+			pstmt.setString(8, vo.getPerinfo());
 			pstmt.executeUpdate();
 
 			return true;
