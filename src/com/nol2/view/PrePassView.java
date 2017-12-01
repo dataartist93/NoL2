@@ -117,10 +117,8 @@ public class PrePassView extends JFrame{
 		
 		
 		setBounds(350, 200, 325, 482);
-		setVisible(true);
+		//setVisible(true);
+		setResizable(false);
 	}
 	
-	public static void main(String[] args) {
-		new PrePassView();
-	}
 }

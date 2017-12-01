@@ -9,7 +9,6 @@ import com.nol2.model.ValidCheck;
 import com.nol2.model.dao.CusDAO;
 import com.nol2.model.vo.CusVO;
 import com.nol2.view.FindIDView;
-import com.nol2.view.JoinView;
 import com.nol2.view.FindPW_View;
 import com.nol2.view.Join;
 import com.nol2.view.LoginForm;
@@ -254,7 +253,7 @@ public class Controller implements ActionListener {
 				joinview.showMsg("처리되지 않았습니다..");
 			}
 
-			joinview.showMsg("주민등록번호를 제대로 입력하세요!");
+		
 
 		}
 
