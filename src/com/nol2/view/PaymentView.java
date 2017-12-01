@@ -51,12 +51,8 @@ public class PaymentView extends JFrame{
 		
 		setTitle("결제창");
 		setBounds(500,200,380,500);
-		setVisible(true);
+		//setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-	}
-	
-	public static void main(String[] args) {
-		new PaymentView();
 	}
 	
 

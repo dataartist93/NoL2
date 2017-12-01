@@ -5,15 +5,21 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
 import com.nol2.model.ValidCheck;
 import com.nol2.model.dao.CusDAO;
 import com.nol2.model.vo.CusVO;
+import com.nol2.view.EventView;
 import com.nol2.view.FindIDView;
 import com.nol2.view.FindPW_View;
+import com.nol2.view.GuideView;
 import com.nol2.view.Join;
 import com.nol2.view.LoginForm;
 import com.nol2.view.MainView;
 import com.nol2.view.PayView;
+import com.nol2.view.PaymentView;
 import com.nol2.view.PrepassSmView;
 import com.nol2.view.TicketView;
 
@@ -25,8 +31,13 @@ public class Controller implements ActionListener {
 	FindPW_View findpassview;
 	TicketView ticketview;
 	PayView payview;
+	PaymentView paymentview;
 	ValidCheck validcheck;
 	PrepassSmView prepasssmview;
+	EventView eventview;
+	GuideView guideview;
+	
+	ImageIcon icon;
 	
 
 	String ticketname = null;
@@ -40,6 +51,9 @@ public class Controller implements ActionListener {
 		ticketview = new TicketView();
 		payview = new PayView();
 		prepasssmview = new PrepassSmView();
+		paymentview = new PaymentView();
+		guideview = new GuideView();
+		eventview = new EventView();
 		eventUp();
 	}
 
@@ -49,6 +63,8 @@ public class Controller implements ActionListener {
 		mainview.bt_Logout.addActionListener(this);
 		mainview.bt_Order.addActionListener(this);
 		mainview.bt_FreePass.addActionListener(this);
+		mainview.bt_Guide.addActionListener(this);
+		mainview.bt_Event.addActionListener(this);
 		mainview.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
@@ -124,6 +140,37 @@ public class Controller implements ActionListener {
 				payview.setVisible(false);
 			}
 		});
+		
+		//PrepassView
+		prepasssmview.bt_submit.addActionListener(this);
+		prepasssmview.bt_reset.addActionListener(this);
+		prepasssmview.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				prepasssmview.setVisible(false);
+				mainview.setVisible(true);
+			}
+		});
+		
+		//GuideView
+		guideview.bt_at.addActionListener(this);
+		guideview.bt_ct.addActionListener(this);
+		guideview.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				guideview.setVisible(false);
+				mainview.setVisible(true);
+			}
+		});
+		
+		//Event
+		eventview.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				eventview.setVisible(false);
+				mainview.setVisible(true);
+			}
+		});
 
 	}
 
@@ -148,6 +195,18 @@ public class Controller implements ActionListener {
 		
 		else if (ob == mainview.bt_FreePass) {//MainView에서 프리패스 버튼 클릭
 			prepasssmview.setVisible(true);
+		}
+		
+		else if (ob == mainview.bt_Guide) {//MainView에서 가이드 버튼 클릭
+			mainview.setVisible(false);
+			icon = new ImageIcon("image/nol2.gif");
+			guideview.map.setIcon(icon);
+			guideview.setVisible(true);
+		}
+		
+		else if (ob == mainview.bt_Event) {
+			mainview.setVisible(false);
+			eventview.setVisible(true);
 		}
 
 		else if (ob == loginform.bt_join) { // LoginForm에서 회원가입 버튼 클릭
@@ -345,6 +404,10 @@ public class Controller implements ActionListener {
 			payview.init();
 			payview.setVisible(false);
 		}
+		
+		else if(ob == ticketview.bt_pay) { // TicketView에서 결제 버튼 클릭
+			paymentview.setVisible(true);
+		}
 
 		else if (ob == payview.bt_cancle) {// PayView에서 취소 버튼을 클릭했을 때
 			payview.setVisible(false);
@@ -353,6 +416,57 @@ public class Controller implements ActionListener {
 		else if (ob == prepasssmview.bt_submit) { //PrepasssmView에서 확인 버튼 클릭
 			prepasssmview.setVisible(false);
 		}
+		
+		else if (ob == guideview.bt_at) {//GuideView에서 놀이기구 버튼 클릭
+			guideview.bt_ct1.setVisible(false);
+			guideview.bt_ct2.setVisible(false);
+			guideview.bt_ct3.setVisible(false);
+			guideview.bt_ct4.setVisible(false);
+			guideview.bt_ct5.setVisible(false);
+			guideview.bt_ct6.setVisible(false);
+			guideview.bt_ct7.setVisible(false);
+			guideview.bt_ct8.setVisible(false);
+			guideview.bt_ct9.setVisible(false);
+			guideview.bt_ct10.setVisible(false);
+			
+			guideview.bt_at1.setVisible(true);
+			guideview.bt_at2.setVisible(true);
+			guideview.bt_at3.setVisible(true);
+			guideview.bt_at4.setVisible(true);
+			guideview.bt_at5.setVisible(true);
+			guideview.bt_at6.setVisible(true);
+			guideview.bt_at7.setVisible(true);
+			guideview.bt_at8.setVisible(true);
+			guideview.bt_at9.setVisible(true);
+			guideview.bt_at10.setVisible(true);
+		
+		}
+		
+		else if(ob == guideview.bt_ct) {//GuideView에서 편의시설 버튼 클릭
+			guideview.bt_at1.setVisible(false);
+			guideview.bt_at2.setVisible(false);
+			guideview.bt_at3.setVisible(false);
+			guideview.bt_at4.setVisible(false);
+			guideview.bt_at5.setVisible(false);
+			guideview.bt_at6.setVisible(false);
+			guideview.bt_at7.setVisible(false);
+			guideview.bt_at8.setVisible(false);
+			guideview.bt_at9.setVisible(false);
+			guideview.bt_at10.setVisible(false);
+			
+			guideview.bt_ct1.setVisible(true);
+			guideview.bt_ct2.setVisible(true);
+			guideview.bt_ct3.setVisible(true);
+			guideview.bt_ct4.setVisible(true);
+			guideview.bt_ct5.setVisible(true);
+			guideview.bt_ct6.setVisible(true);
+			guideview.bt_ct7.setVisible(true);
+			guideview.bt_ct8.setVisible(true);
+			guideview.bt_ct9.setVisible(true);
+			guideview.bt_ct10.setVisible(true);
+		}
+		
+		
 	
 	}
 

@@ -157,7 +157,7 @@ public class GuideView extends JFrame {
 	    
 		
 		setBounds(400,100,800,850);
-	    setVisible(true);
+	    //setVisible(true);
 	    setResizable(false);
 	}//생성자
 	
