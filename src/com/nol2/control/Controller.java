@@ -14,17 +14,20 @@ import com.nol2.view.Join;
 import com.nol2.view.LoginForm;
 import com.nol2.view.MainView;
 import com.nol2.view.PayView;
+import com.nol2.view.PrepassSmView;
 import com.nol2.view.TicketView;
 
 public class Controller implements ActionListener {
 	MainView mainview;
+	LoginForm loginform;
 	Join joinview;
 	FindIDView findidview;
 	FindPW_View findpassview;
 	TicketView ticketview;
 	PayView payview;
 	ValidCheck validcheck;
-	LoginForm loginform;
+	PrepassSmView prepasssmview;
+	
 
 	String ticketname = null;
 
@@ -36,6 +39,7 @@ public class Controller implements ActionListener {
 		joinview = new Join();
 		ticketview = new TicketView();
 		payview = new PayView();
+		prepasssmview = new PrepassSmView();
 		eventUp();
 	}
 
@@ -44,6 +48,7 @@ public class Controller implements ActionListener {
 		mainview.bt_Login.addActionListener(this);
 		mainview.bt_Logout.addActionListener(this);
 		mainview.bt_Order.addActionListener(this);
+		mainview.bt_FreePass.addActionListener(this);
 		mainview.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
@@ -136,9 +141,13 @@ public class Controller implements ActionListener {
 			mainview.showMsg("로그아웃 되었습니다!");
 		}
 		
-		else if (ob == mainview.bt_Order) {
+		else if (ob == mainview.bt_Order) { //MainView에서 티켓결제 버튼 클릭
 			mainview.setVisible(false);
 			ticketview.setVisible(true);
+		}
+		
+		else if (ob == mainview.bt_FreePass) {//MainView에서 프리패스 버튼 클릭
+			prepasssmview.setVisible(true);
 		}
 
 		else if (ob == loginform.bt_join) { // LoginForm에서 회원가입 버튼 클릭
@@ -249,10 +258,8 @@ public class Controller implements ActionListener {
 				perinfo = "N";
 			}
 
-			CusVO cusvo = new CusVO(0, 0, ID, Password, Jumin1, Jumin2, Name, Tel, addr, perinfo); // Primary key
-																									// 자리에
-																									// seq 해야함 !!
-
+			CusVO cusvo = new CusVO(0, 0, ID, Password, Jumin1, Jumin2, Name, Tel, addr, perinfo);
+			
 			if (cusdao.insert(cusvo)) { // insert 성공
 				joinview.showMsg("가입되었습니다!");
 				joinview.setVisible(false);
@@ -342,7 +349,11 @@ public class Controller implements ActionListener {
 		else if (ob == payview.bt_cancle) {// PayView에서 취소 버튼을 클릭했을 때
 			payview.setVisible(false);
 		}
-
+		
+		else if (ob == prepasssmview.bt_submit) { //PrepasssmView에서 확인 버튼 클릭
+			prepasssmview.setVisible(false);
+		}
+	
 	}
 
 	public static void main(String[] args) {
