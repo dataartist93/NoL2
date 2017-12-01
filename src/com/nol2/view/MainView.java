@@ -45,7 +45,7 @@ public class MainView extends JFrame {
       setBounds(400,100,800,850);
       setVisible(true);
       setResizable(false);
-      setDefaultCloseOperation(EXIT_ON_CLOSE);
+      //setDefaultCloseOperation(EXIT_ON_CLOSE);
        
    }//생성자 
     public void showMsg(String msg) {

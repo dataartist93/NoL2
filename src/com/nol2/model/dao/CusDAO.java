@@ -63,7 +63,7 @@ public class CusDAO {
 	         pstmt.setInt(4, vo.getJumin2());
 	         pstmt.setString(5, vo.getName());
 	         pstmt.setString(6, vo.getTel());
-	         pstmt.setString(7, vo.getAddr());
+	         pstmt.setString(7, vo.getAddr()); 
 	         pstmt.setString(8, vo.getPerinfo());
 	         pstmt.executeUpdate();
 
@@ -195,7 +195,7 @@ public class CusDAO {
 		connect();
 		String id = null;
 		try {
-			String sql = "select ID from customer where Name=? and Jumin1=? and Jumin2=?";
+			String sql = "select cusID from customer where Name=? and Jumin1=? and Jumin2=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, Name);
 			pstmt.setInt(2, Jumin1);

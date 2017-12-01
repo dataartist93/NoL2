@@ -50,6 +50,12 @@ public class FindIDView extends JFrame {
 		//setVisible(true);
 		setResizable(false);
 	}
+	
+	public void init() {
+		tf_name.setText("");
+		tf_jumin1.setText("");
+		tf_jumin2.setText("");
+	}
 
 	public void showMsg(String msg) {
 		JOptionPane.showMessageDialog(this, msg);
