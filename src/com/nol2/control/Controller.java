@@ -9,7 +9,6 @@ import com.nol2.model.ValidCheck;
 import com.nol2.model.dao.CusDAO;
 import com.nol2.model.vo.CusVO;
 import com.nol2.view.FindIDView;
-import com.nol2.view.JoinView;
 import com.nol2.view.FindPW_View;
 import com.nol2.view.Join;
 import com.nol2.view.LoginForm;
@@ -48,7 +47,7 @@ public class Controller implements ActionListener {
 		mainview.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
-				mainview.setVisible(false);
+				System.exit(0);
 			}
 		});
 
@@ -78,7 +77,7 @@ public class Controller implements ActionListener {
 		// Find_PassView
 		findpassview.bt_confirm.addActionListener(this);
 		findpassview.bt_cancel.addActionListener(this);
-		findpassview.addWindowListener(new WindowAdapter() { // form에서 x버튼을 눌렀을 때!
+		findpassview.addWindowListener(new WindowAdapter() { 
 			@Override
 			public void windowClosing(WindowEvent e) {
 				findpassview.setVisible(false);
@@ -89,7 +88,7 @@ public class Controller implements ActionListener {
 		joinview.bt_checkid.addActionListener(this);
 		joinview.bt_submit.addActionListener(this);
 		joinview.bt_reset.addActionListener(this);
-		joinview.addWindowListener(new WindowAdapter() { // form에서 x버튼을 눌렀을 때!
+		joinview.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
 				joinview.setVisible(false);
@@ -102,15 +101,24 @@ public class Controller implements ActionListener {
 		ticketview.bt_ThemeTicket.addActionListener(this);
 		ticketview.bt_pay.addActionListener(this);
 		ticketview.bt_cancle.addActionListener(this);
-		ticketview.addWindowListener(new WindowAdapter() { // form에서 x버튼을 눌렀을 때!
+		ticketview.addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
 				ticketview.setVisible(false);
+				mainview.setVisible(true);
 			}
 		});
 
 		// PayView
 		payview.bt_submit.addActionListener(this);
+		payview.bt_cancle.addActionListener(this);
+		payview.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				payview.setVisible(false);
+			}
+		});
+
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -329,7 +337,7 @@ public class Controller implements ActionListener {
 		}
 		
 		else if (ob == payview.bt_cancle) { // PayView에서 취소 버튼 클릭
-			
+			payview.setVisible(false);
 		}
 	}
 
