@@ -125,7 +125,6 @@ public class Controller implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object ob = e.getSource();
 
-		if (ob == mainview.bt_Login) {
 			if (ob == mainview.bt_Login) { // MainView에서 로그인 버튼 클릭
 				loginform.setVisible(true);
 			} else if (ob == loginform.bt_join) { // 회원가입 클릭시 보여주기
@@ -342,20 +341,11 @@ public class Controller implements ActionListener {
 				payview.init();
 				payview.setVisible(false);
 			}
-<<<<<<< HEAD
-			ticketname = null;
-			payview.init();
-			payview.setVisible(false);
-		}
-		
-		else if (ob == payview.bt_cancle) { // PayView에서 취소 버튼 클릭
-			payview.setVisible(false);
-=======
 
-			else if (ob == payview.bt_cancle) {
-			} // PayView에서 취소 버튼 클릭
->>>>>>> ddcaaf832e312aacd568a7ad2c2c1a2888183f9c
-		}
+			else if (ob == payview.bt_cancle) {// PayView에서 취소 버튼을 클릭했을 때
+				payview.setVisible(false);
+			}
+			
 
 	}
 
