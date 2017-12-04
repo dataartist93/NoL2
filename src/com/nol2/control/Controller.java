@@ -328,7 +328,7 @@ public class Controller implements ActionListener {
 			}
 
 			else { // insert 실패
-				joinview.showMsg("처리되지 않았습니다..");
+
 			}
 
 			joinview.showMsg("주민등록번호를 제대로 입력하세요!");
